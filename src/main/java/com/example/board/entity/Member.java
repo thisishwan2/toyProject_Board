@@ -1,23 +1,20 @@
 package com.example.board.entity;
 
-
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.util.Assert;
 
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-
 
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Member {
 
-    @Id @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "create_id")
     private Long id;
 
@@ -44,5 +41,4 @@ public class Member {
         this.name=name;
         this.password=password;
     }
-
 }
