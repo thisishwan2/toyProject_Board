@@ -1,11 +1,11 @@
-package com.example.board;
+package com.example.boardV1;
 
-import com.example.board.entity.Board;
-import com.example.board.entity.File;
-import com.example.board.entity.Member;
-import com.example.board.repository.BoardRepository;
-import com.example.board.repository.FileRepository;
-import com.example.board.repository.MemberRepository;
+import com.example.boardV1.entity.Board;
+import com.example.boardV1.entity.File;
+import com.example.boardV1.entity.Member;
+import com.example.boardV1.repository.BoardRepository;
+import com.example.boardV1.repository.FileRepository;
+import com.example.boardV1.repository.MemberRepository;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

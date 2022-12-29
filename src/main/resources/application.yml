@@ -16,6 +16,8 @@ spring:
     properties:
       hibernate:
         format_sql: true
+  profiles:
+    include: cloud #local or cloud
 
 logging:
   level:
