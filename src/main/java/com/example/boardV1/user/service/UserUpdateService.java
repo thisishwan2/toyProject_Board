@@ -15,7 +15,10 @@ public class UserUpdateService {
     @Transactional
     public Long update(Long userId, UserUpdateRequest userUpdateRequest){
         User findUser = userFindService.findById(userId);
-        User updatedUser = findUser.updateUserInfo(userUpdateRequest.getName(), userUpdateRequest.getPassword());
+        User updatedUser = findUser.updateUserInfo(
+                userUpdateRequest.getName(),
+                userUpdateRequest.getPassword()
+        );
         return updatedUser.getUser_id();
     }
 }
