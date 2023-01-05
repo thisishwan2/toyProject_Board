@@ -1,7 +1,7 @@
 package com.example.boardV1.user.service;
 
 import com.example.boardV1.user.api.request.UserLogInRequest;
-import com.example.boardV1.user.api.request.UserSingUpRequest;
+import com.example.boardV1.user.api.request.UserSignUpRequest;
 import com.example.boardV1.user.exception.DuplicatedEmailException;
 import com.example.boardV1.user.exception.UnMatchedPasswordException;
 import com.example.boardV1.user.model.User;
@@ -18,7 +18,7 @@ public class UserSignService {
     private final UserFindService userFindService;
 
     @Transactional
-    public Long singUp(UserSingUpRequest userSingUpRequest){
+    public Long signUp(UserSignUpRequest userSingUpRequest){
         checkDuplicatedEmail(userSingUpRequest.getEmail());
         User user = User.builder()
                 .email(userSingUpRequest.getEmail())
