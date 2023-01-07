@@ -15,7 +15,7 @@ public class UserUpdateApi {
 
     private final UserUpdateService userUpdateService;
 
-    @PutMapping("/update")
+    @PutMapping("/update/{userId}")
     public ApiResult<Long> updateUserInfo(@PathVariable Long userId,
                                           @RequestBody UserUpdateRequest userUpdateRequest){
         try {

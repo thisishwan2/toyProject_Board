@@ -15,7 +15,7 @@ public class UserDeleteApi {
 
     private final UserDeleteService userDeleteService;
 
-    @DeleteMapping("/delete/{useriId}")
+    @DeleteMapping("/delete/{userId}")
     public void deleteUserById(@PathVariable Long userId){
         userDeleteService.deleteUserById(userId);
     }
