@@ -1,11 +1,15 @@
 package com.example.boardV1.user.model;
 
+import com.example.boardV1.board.model.Board;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.codehaus.jackson.annotate.JsonManagedReference;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -32,6 +36,10 @@ public class User {
     @Enumerated(value = EnumType.STRING)
     private UserRole userRole;
 
+    @JsonManagedReference
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Board> boards = new ArrayList<>();
+
     @Builder
     public User(String email, String password, String name, UserRole userRole){
         this.email = email;
@@ -48,5 +56,10 @@ public class User {
 
     public void modifyDeviceToken(String deviceToken) {
         this.deviceToken = deviceToken;
+    }
+
+    public void writeBoard(Board board) {
+        this.boards.add(board);
+        board.createdByUser(this);
     }
 }
