@@ -6,7 +6,6 @@ import com.example.boardV1.board.model.BoardCategory;
 import com.example.boardV1.board.repository.BoardRepository;
 import com.example.boardV1.user.model.User;
 import com.example.boardV1.user.service.UserFindService;
-import com.google.api.gax.rpc.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -39,6 +38,4 @@ public class BoardFindService {
         User user = userFindService.findById(userId);
         return boardRepository.findByUser(user);
     }
-
-
 }

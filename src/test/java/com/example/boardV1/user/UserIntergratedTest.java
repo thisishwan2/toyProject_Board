@@ -1,4 +1,4 @@
-package com.example.boardV1.user.service;
+package com.example.boardV1.user;
 
 import com.example.boardV1.user.api.UserDeleteApi;
 import com.example.boardV1.user.api.UserFindApi;
@@ -12,8 +12,10 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
 @SpringBootTest
+@Transactional
 @TestMethodOrder(MethodOrderer.MethodName.class)
 public class UserIntergratedTest {
 

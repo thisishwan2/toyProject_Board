@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class BoardWriteRequest {
+public class BoardUpdateRequest {
     private String title;
     private String content;
-    private BoardCategory Category;
+    private BoardCategory category;
 }
