@@ -31,7 +31,7 @@ public class UserFindApi {
     }
 
     @GetMapping()
-    public ApiResult<List<User>> findUsers(){
+    public ApiResult<?> findUsers(){
         try{
             return ApiResult.succeed(userFindService.findAll());
         }catch (Exception e){

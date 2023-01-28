@@ -25,7 +25,8 @@ public class BoardUpdateService {
         Long updateBoardId = board.update(
                 boardUpdateRequest.getTitle(),
                 boardUpdateRequest.getContent(),
-                boardUpdateRequest.getCategory());
+                boardUpdateRequest.getCategory()
+        );
         return updateBoardId;
     }
 

@@ -22,8 +22,8 @@ public class UserSignService {
         checkDuplicatedEmail(userSingUpRequest.getEmail());
         User user = User.builder()
                 .email(userSingUpRequest.getEmail())
-                .name(userSingUpRequest.getName())
                 .password(userSingUpRequest.getPassword())
+                .name(userSingUpRequest.getName())
                 .userRole(UserRole.NORMAL)
                 .build();
         User savedUser = userRepository.save(user);

@@ -1,6 +1,7 @@
 package com.example.boardV1.user.model;
 
 import com.example.boardV1.board.model.Board;
+import com.example.boardV1.comment.Model.Comment;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -40,6 +41,10 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Board> boards = new ArrayList<>();
 
+    @JsonManagedReference
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL, orphanRemoval = true)
+    List<Comment> comments = new ArrayList<>();
+
     @Builder
     public User(String email, String password, String name, UserRole userRole){
         this.email = email;
@@ -47,6 +52,7 @@ public class User {
         this.name = name;
         this.userRole = userRole;
     }
+
 
     public User updateUserInfo(String name, String password) {
         this.name=name;
@@ -61,5 +67,10 @@ public class User {
     public void writeBoard(Board board) {
         this.boards.add(board);
         board.createdByUser(this);
+    }
+
+    public void writeComment(Comment comment){
+        this.comments.add(comment);
+        comment.writeByUser(this);
     }
 }

@@ -23,7 +23,7 @@ public class BoardDeleteService {
         User user = userFindService.findById(userId);
         Board board = boardFindService.findById(boardId);
         checkBoardLoginUser(user, board);
-        boardRepository.delete(board);
+        boardRepository.deleteById(board.getBoard_id());
         //boardRepository.deleteById(boardId);
     }
 

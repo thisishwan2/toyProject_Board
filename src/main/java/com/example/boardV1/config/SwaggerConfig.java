@@ -16,12 +16,11 @@ import java.util.Set;
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
+    private static final String API_NAME = "Hwan's Board";
+    private static final String API_VERSION = "0.1";
+    private static final String API_DESCRIPTION = "Board 명세서";
 
-     private static final String API_NAME = "Hwan's Board";
-     private static final String API_VERSION = "0.1";
-     private static final String API_DESCRIPTION = "Board 명세서";
-
-     @Bean
+    @Bean
     public Docket api(){
          return new Docket(DocumentationType.SWAGGER_2)
                  .consumes(getConsumeContentTypes())
@@ -32,7 +31,8 @@ public class SwaggerConfig {
                  .apis(RequestHandlerSelectors.basePackage("com.example.boardV1"))
                  .paths(PathSelectors.any())
                  .build();
-     }
+    }
+
     private Set<String> getConsumeContentTypes() {
         Set<String> consumes = new HashSet<>();
         consumes.add("application/json;charset=UTF-8");
